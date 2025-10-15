@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antony Mwangi | Software Engineer & Data Scientist</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -14,50 +14,37 @@
     <nav>
       <h2 class="logo">Antony<span>Mwangi</span></h2>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#expertise">Expertise</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#labs">Labs</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#expertise" class="nav-link" data-section="expertise">Expertise</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#labs" class="nav-link" data-section="labs">Labs</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="btn-contact">Get in Touch</a>
+      <a href="#contact" class="btn-contact nav-link" data-section="contact">Get in Touch</a>
       <div class="mobile-menu">
         <i class="fas fa-bars"></i>
       </div>
     </nav>
   </header>
 
-   <!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-content">
-    <div class="profile-image-container">
-      <img src="assets/images/profile.jpg" alt="Antony Mwangi" class="profile-pic" onerror="this.style.display='none'"/>
-      <div class="image-placeholder">
-        <i class="fas fa-user"></i>
-        <span>Add Profile Photo</span>
+  <!-- HOME SECTION -->
+  <section id="home" class="page active">
+    <div class="hero-content">
+      <div class="profile-image-container">
+        <img src="assets/images/profile.jpg" alt="Antony Mwangi" class="profile-pic" onerror="this.style.display='none'"/>
+        <div class="image-placeholder">
+          <i class="fas fa-user"></i>
+          <span>Add Profile Photo</span>
+        </div>
       </div>
+      <h1>Hi, I'm <span>Antony Mwangi</span></h1>
+      <p id="subtitle">Computer Science Graduate & <span class="typing-text" id="typing-text"></span></p>
     </div>
-    
-    <h1>Hi, I'm <span>Antony Mwangi</span></h1>
-    <p id="subtitle">Computer Science Graduate & <span class="typing-text" id="typing-text"></span></p>
-    
-    <!-- REMOVED BUTTONS FROM HERE -->
-  </div>
-</section>
-    
-    <!-- Text content BELOW the image -->
-    <h1>Hi, I'm <span>Antony Mwangi</span></h1>
-    <p id="subtitle">Computer Science Graduate & <span class="typing-text" id="typing-text"></span></p>
-    <div class="hero-buttons">
-      <a href="#projects" class="btn">Explore My Work</a>
-      <a href="#contact" class="btn btn-secondary">Contact Me</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="fade-in">
+  <!-- ABOUT SECTION -->
+  <section id="about" class="page">
     <div class="container">
       <h2>About Me</h2>
       <div class="about-content">
@@ -76,8 +63,8 @@
     </div>
   </section>
 
-  <!-- EXPERTISE -->
-  <section id="expertise" class="fade-in">
+  <!-- EXPERTISE SECTION -->
+  <section id="expertise" class="page">
     <div class="container">
       <h2>Core Expertise</h2>
       <div class="expertise-grid">
@@ -113,8 +100,8 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="fade-in">
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="page">
     <div class="container">
       <h2>Featured Projects</h2>
       <div class="card-container">
@@ -123,10 +110,10 @@
             <i class="fas fa-school"></i>
           </div>
           <h3>School Management System</h3>
-          <p>Digital platform to manage student records, exams, and reports for JM Kariuki Secondary School. Streamlined administrative processes and improved data accuracy.</p>
+          <p>Digital platform to manage student records, exams, and reports for JM Kariuki Secondary School.</p>
           <div class="project-links">
             <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> Code</a>
-            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Demo</a>
           </div>
         </div>
         <div class="card project-card">
@@ -134,10 +121,10 @@
             <i class="fas fa-hotel"></i>
           </div>
           <h3>Hotel Analytics Dashboard</h3>
-          <p>Power BI dashboard tracking revenue, occupancy, and operational KPIs for a hospitality business. Enabled data-driven decisions that increased profitability by 15%.</p>
+          <p>Power BI dashboard tracking revenue, occupancy, and operational KPIs for hospitality business.</p>
           <div class="project-links">
             <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> Code</a>
-            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Demo</a>
           </div>
         </div>
         <div class="card project-card">
@@ -145,39 +132,39 @@
             <i class="fas fa-home"></i>
           </div>
           <h3>AI Housing Generator</h3>
-          <p>Prototype AI model generating optimized house plans based on user requirements, spatial constraints, and sustainability metrics.</p>
+          <p>Prototype AI model generating optimized house plans based on user requirements.</p>
           <div class="project-links">
             <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> Code</a>
-            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Demo</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LAB CHALLENGES -->
-  <section id="labs" class="fade-in">
+  <!-- LABS SECTION -->
+  <section id="labs" class="page">
     <div class="container">
       <h2>Lab Challenges</h2>
       <div class="card-container">
         <div class="card">
           <h3>Power BI Data Modelling</h3>
-          <p>Designed a star schema and implemented DAX for dynamic, accurate dashboards that improved reporting efficiency by 40%.</p>
+          <p>Designed star schema and implemented DAX for dynamic, accurate dashboards.</p>
         </div>
         <div class="card">
           <h3>Python Automation Script</h3>
-          <p>Script to automate data cleaning, visualization, and reporting tasks efficiently, saving 10+ hours weekly.</p>
+          <p>Script to automate data cleaning, visualization, and reporting tasks efficiently.</p>
         </div>
         <div class="card">
           <h3>Cybersecurity Simulations</h3>
-          <p>Performed vulnerability testing and penetration testing on sample networks and systems, identifying critical security gaps.</p>
+          <p>Performed vulnerability testing and penetration testing on sample networks.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="fade-in">
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="page">
     <div class="container">
       <h2>Let's Connect</h2>
       <p>I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and innovation.</p>
@@ -194,11 +181,6 @@
       </div>
     </div>
   </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Antony Mwangi | Building secure, data-driven, and innovative solutions</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
