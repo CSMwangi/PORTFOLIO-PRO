@@ -2,11 +2,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     const pages = document.querySelectorAll('.page');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinksContainer = document.querySelector('.nav-links');
     
     // Function to show a specific section
     function showSection(sectionId) {
-        console.log('Showing section:', sectionId); // Debug log
-        
         // Hide all pages
         pages.forEach(page => {
             page.classList.remove('active');
@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetPage = document.getElementById(sectionId);
         if (targetPage) {
             targetPage.classList.add('active');
-            console.log('Target page found and activated'); // Debug log
-        } else {
-            console.log('Target page not found:', sectionId); // Debug log
         }
         
         // Update active nav link
@@ -28,6 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.add('active');
             }
         });
+        
+        // Close mobile menu if open
+        if (navLinksContainer.classList.contains('active')) {
+            navLinksContainer.classList.remove('active');
+        }
         
         // Scroll to top smoothly
         window.scrollTo({
@@ -40,41 +42,41 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const sectionId = this.getAttribute('data-section');
-            console.log('Nav link clicked:', sectionId); // Debug log
+            const sectionId = this.getAttribute('href').substring(1);
             showSection(sectionId);
         });
     });
     
     // Mobile menu functionality
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const navLinksContainer = document.querySelector('.nav-links');
-    
     if (mobileMenu && navLinksContainer) {
         mobileMenu.addEventListener('click', function() {
             navLinksContainer.classList.toggle('active');
-            console.log('Mobile menu toggled'); // Debug log
         });
     }
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('nav') && navLinksContainer.classList.contains('active')) {
+            navLinksContainer.classList.remove('active');
+        }
+    });
     
     // Initialize typing effect
     initTypingEffect();
     
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinksContainer.classList.remove('active');
+    // Scroll indicator functionality
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            showSection('about');
         });
-    });
+    }
 });
 
 // Enhanced typing effect function
 function initTypingEffect() {
     const typingElement = document.getElementById('typing-text');
-    if (!typingElement) {
-        console.log('Typing element not found');
-        return;
-    }
+    if (!typingElement) return;
     
     const texts = [
         "Data Scientist", 
@@ -104,11 +106,11 @@ function initTypingEffect() {
         
         if (!isDeleting && charIndex === currentText.length) {
             isDeleting = true;
-            typingSpeed = 1500; // Pause at end
+            typingSpeed = 1500;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             textIndex = (textIndex + 1) % texts.length;
-            typingSpeed = 500; // Pause before next word
+            typingSpeed = 500;
         }
         
         setTimeout(type, typingSpeed);
@@ -117,8 +119,3 @@ function initTypingEffect() {
     // Start typing effect
     setTimeout(type, 1000);
 }
-
-// Add scroll indicator functionality
-document.querySelector('.scroll-indicator')?.addEventListener('click', function() {
-    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-});
