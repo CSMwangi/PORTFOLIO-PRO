@@ -107,14 +107,227 @@ nav {
 }
 
 /* Home page specific styles - ONLY applies when active */
-#home.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+/* Enhanced Home Section - Text Visibility Fix */
+#home.active .hero-text h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+#home.active .hero-text h1 .gradient-text {
+  background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 3s ease infinite;
+  display: inline-block;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the "Hi, I'm" part more visible */
+#home.active .hero-text h1 {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#home.active .hero-text h1 span:first-child {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+/* Improve subtitle visibility */
+#home.active .subtitle {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  opacity: 0.95;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#home.active .typing-text {
+  color: #feca57;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Improve hero description visibility */
+#home.active .hero-description {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+  opacity: 0.9;
+  line-height: 1.7;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+}
+
+/* Enhanced gradient animation */
+@keyframes gradient {
+  0% { 
+    background-position: 0% 50%; 
+    filter: hue-rotate(0deg);
+  }
+  50% { 
+    background-position: 100% 50%; 
+    filter: hue-rotate(90deg);
+  }
+  100% { 
+    background-position: 0% 50%; 
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* Improve stats visibility */
+#home.active .hero-stats {
   display: flex;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  justify-content: flex-start;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#home.active .stat {
+  text-align: center;
+}
+
+#home.active .stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #feca57;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+}
+
+#home.active .stat-label {
+  font-size: 1rem;
+  opacity: 0.9;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve button visibility */
+#home.active .hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  justify-content: flex-start;
+}
+
+#home.active .btn {
+  padding: 15px 35px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#home.active .btn-primary {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  color: white;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+#home.active .btn-primary:hover {
+  background: linear-gradient(45deg, #ff5252, #ff7b7b);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+}
+
+#home.active .btn-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+#home.active .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.2);
+}
+
+/* Improve scroll indicator */
+#home.active .scroll-indicator {
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#home.active .scroll-indicator i {
+  margin-top: 0.8rem;
+  display: block;
+  font-size: 1.5rem;
+}
+
+/* Mobile responsiveness for text */
+@media (max-width: 768px) {
+  #home.active .hero-text h1 {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+  
+  #home.active .subtitle {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  
+  #home.active .hero-description {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #home.active .hero-stats {
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  #home.active .stat-number {
+    font-size: 2rem;
+  }
+  
+  #home.active .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #home.active .hero-text h1 {
+    font-size: 2.2rem;
+  }
+  
+  #home.active .hero-text h1 .gradient-text {
+    font-size: 2.2rem;
+  }
+  
+  #home.active .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  #home.active .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 /* Other pages should have their own backgrounds */
@@ -707,4 +920,13 @@ nav {
     width: 200px;
     justify-content: center;
   }
+}
+
+/* Add this to improve overall text readability */
+#home.active .hero-content {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#home.active .hero-text h1 {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
