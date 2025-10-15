@@ -30,48 +30,98 @@
 
   <!-- HOME SECTION -->
   <section id="home" class="page active">
-    <div class="hero-content">
-      <div class="profile-image-container">
-        <img src="assets/images/profile.jpg" alt="Antony Mwangi" class="profile-pic" onerror="this.style.display='none'"/>
-        <div class="image-placeholder">
-          <i class="fas fa-user"></i>
-          <span>Add Profile Photo</span>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="profile-hero">
+          <div class="profile-image-container">
+            <img src="assets/images/profile.jpg" alt="Antony Mwangi" class="profile-pic" onerror="this.style.display='none'"/>
+            <div class="image-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <div class="profile-glow"></div>
+        </div>
+        
+        <div class="hero-text">
+          <h1>Hi, I'm <span class="gradient-text">Antony Mwangi</span></h1>
+          <p class="subtitle">Computer Science Graduate & <span class="typing-text" id="typing-text"></span></p>
+          <p class="hero-description">
+            Bridging technology, data science, and innovation to create impactful solutions. 
+            Passionate about building scalable systems and driving digital transformation.
+          </p>
+          
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">3+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary nav-link" data-section="projects">
+              <i class="fas fa-rocket"></i>View My Work
+            </a>
+            <a href="#contact" class="btn btn-secondary nav-link" data-section="contact">
+              <i class="fas fa-paper-plane"></i>Hire Me
+            </a>
+          </div>
         </div>
       </div>
-      <h1>Hi, I'm <span class="gradient-text">Antony Mwangi</span></h1>
-      <p id="subtitle">Computer Science Graduate & <span class="typing-text" id="typing-text"></span></p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary nav-link" data-section="projects">View My Work</a>
-        <a href="#contact" class="btn btn-secondary nav-link" data-section="contact">Hire Me</a>
-      </div>
+      
       <div class="scroll-indicator">
-        <span>Scroll Down</span>
+        <span>Explore More</span>
         <i class="fas fa-chevron-down"></i>
       </div>
     </div>
-    <div class="floating-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
+    
+    <!-- Background Elements -->
+    <div class="hero-bg-elements">
+      <div class="bg-circle circle-1"></div>
+      <div class="bg-circle circle-2"></div>
+      <div class="bg-circle circle-3"></div>
+      <div class="floating-element element-1"><i class="fas fa-code"></i></div>
+      <div class="floating-element element-2"><i class="fas fa-chart-line"></i></div>
+      <div class="floating-element element-3"><i class="fas fa-shield-alt"></i></div>
     </div>
   </section>
 
   <!-- ABOUT SECTION -->
   <section id="about" class="page">
     <div class="container">
-      <h2>About Me</h2>
+      <h2 class="section-title">About Me</h2>
       <div class="about-content">
-        <p>
-          I am a multidisciplinary professional bridging technology, data, and economics. My expertise spans 
-          <strong>Software Engineering</strong>, <strong>Data & AI</strong>, <strong>Cybersecurity & Ethical Hacking</strong>, 
-          and <strong>Economic Analysis</strong>. I focus on building scalable solutions, securing digital systems, 
-          and creating data-driven insights for sustainable decision-making.
-        </p>
-        <p>
-          With a passion for innovation and problem-solving, I continuously explore emerging technologies 
-          and their applications across various industries. My goal is to leverage technical expertise 
-          to drive meaningful impact and create solutions that address complex challenges.
-        </p>
+        <div class="about-text">
+          <p>
+            I am a multidisciplinary professional bridging technology, data, and economics. My expertise spans 
+            <strong>Software Engineering</strong>, <strong>Data & AI</strong>, <strong>Cybersecurity & Ethical Hacking</strong>, 
+            and <strong>Economic Analysis</strong>. I focus on building scalable solutions, securing digital systems, 
+            and creating data-driven insights for sustainable decision-making.
+          </p>
+          <p>
+            With a passion for innovation and problem-solving, I continuously explore emerging technologies 
+            and their applications across various industries. My goal is to leverage technical expertise 
+            to drive meaningful impact and create solutions that address complex challenges.
+          </p>
+          
+          <div class="skills-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Data Analysis</span>
+            <span class="skill-tag">Cybersecurity</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">React</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -79,7 +129,7 @@
   <!-- EXPERTISE SECTION -->
   <section id="expertise" class="page">
     <div class="container">
-      <h2>Core Expertise</h2>
+      <h2 class="section-title">Core Expertise</h2>
       <div class="expertise-grid">
         <div class="card expertise-card">
           <div class="expertise-icon">
@@ -116,7 +166,7 @@
   <!-- PROJECTS SECTION -->
   <section id="projects" class="page">
     <div class="container">
-      <h2>Featured Projects</h2>
+      <h2 class="section-title">Featured Projects</h2>
       <div class="card-container">
         <div class="card project-card">
           <div class="project-img">
@@ -158,7 +208,7 @@
   <!-- LABS SECTION -->
   <section id="labs" class="page">
     <div class="container">
-      <h2>Lab Challenges</h2>
+      <h2 class="section-title">Lab Challenges</h2>
       <div class="card-container">
         <div class="card">
           <h3>Power BI Data Modelling</h3>
@@ -179,17 +229,23 @@
   <!-- CONTACT SECTION -->
   <section id="contact" class="page">
     <div class="container">
-      <h2>Let's Connect</h2>
-      <p>I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and innovation.</p>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="contact-subtitle">I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and innovation.</p>
       <div class="contact-links">
         <a href="mailto:mainamwangi@email.com" class="contact-link">
-          <i class="fas fa-envelope"></i> Email
+          <i class="fas fa-envelope"></i> 
+          <span>Email</span>
+          <small>mainamwangi@email.com</small>
         </a>
         <a href="https://www.linkedin.com/in/csmwangi/" class="contact-link">
-          <i class="fab fa-linkedin"></i> LinkedIn
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+          <small>Connect professionally</small>
         </a>
         <a href="https://github.com/csmwangi" class="contact-link">
-          <i class="fab fa-github"></i> GitHub
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+          <small>View my projects</small>
         </a>
       </div>
     </div>
