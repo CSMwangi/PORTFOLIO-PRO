@@ -242,11 +242,49 @@ nav {
   left: -200px;
 }
 
+/* Fix Hero Section Layout */
 .hero-content {
+  max-width: 800px;
+  z-index: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  width: 100%;
+}
+
+/* Ensure proper spacing */
+.profile-image-container {
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+  line-height: 1.1;
+}
+
+#subtitle {
+  font-size: 1.5rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  min-height: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Remove any duplicate content */
+.hero-content h1:last-of-type {
+  display: none;
 }
 
 .profile-image-container {
