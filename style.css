@@ -270,17 +270,6 @@ nav {
 }
 
 /* Real profile image - hidden by default if not available */
-.profile-image-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 2rem;
-  border-radius: 50%;
-  border: 5px solid white;
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
-}
-
 .profile-pic {
   width: 100%;
   height: 100%;
@@ -292,6 +281,7 @@ nav {
   left: 0;
 }
 
+/* Placeholder - always visible but hidden when image loads */
 .image-placeholder {
   width: 100%;
   height: 100%;
@@ -302,9 +292,22 @@ nav {
   align-items: center;
   justify-content: center;
   color: var(--gray);
+  transition: var(--transition);
 }
 
-/* Hide placeholder when image loads */
+.image-placeholder i {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.image-placeholder span {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0 0.5rem;
+  font-weight: 500;
+}
+
+/* Hide placeholder when image is loaded */
 .profile-image-container:has(.profile-pic:not([style*="display: none"])) .image-placeholder {
   display: none;
 }
