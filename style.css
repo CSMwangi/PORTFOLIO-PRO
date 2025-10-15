@@ -1085,3 +1085,12 @@ footer {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
 }
+/* Move photo holder down slightly */
+#home.active .profile-hero {
+  margin-top: 20px;
+}
+
+/* Add space between Antony and Mwangi */
+#home.active .hero-text h1 .gradient-text {
+  word-spacing: 8px;
+}
