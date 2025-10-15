@@ -106,40 +106,125 @@ nav {
   display: block;
 }
 
-/* Home page specific styles - ONLY applies when active */
-/* Enhanced Home Section - Text Visibility Fix */
+/* Enhanced Home Section - Improved Colors */
+#home.active {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#home.active .hero-container {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+#home.active .hero-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Improved Profile Image Container */
+#home.active .profile-hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#home.active .profile-image-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+#home.active .profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#home.active .image-placeholder {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#home.active .image-placeholder span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#home.active .profile-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  filter: blur(25px);
+  opacity: 0.4;
+  animation: glowRotate 8s linear infinite;
+}
+
+@keyframes glowRotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Text Styles */
 #home.active .hero-text h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
   text-align: left;
   font-weight: 700;
   line-height: 1.2;
-}
-
-#home.active .hero-text h1 .gradient-text {
-  background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient 3s ease infinite;
-  display: inline-block;
-  font-weight: 800;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Make the "Hi, I'm" part more visible */
-#home.active .hero-text h1 {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-#home.active .hero-text h1 span:first-child {
-  color: rgba(255, 255, 255, 0.95);
-  font-weight: 600;
+#home.active .hero-text h1 .gradient-text {
+  background: linear-gradient(45deg, #4facfe, #00f2fe, #a8edea);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 4s ease infinite;
+  display: inline-block;
+  font-weight: 800;
 }
 
-/* Improve subtitle visibility */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 #home.active .subtitle {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
@@ -150,12 +235,11 @@ nav {
 }
 
 #home.active .typing-text {
-  color: #feca57;
+  color: #a8edea;
   font-weight: 600;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Improve hero description visibility */
 #home.active .hero-description {
   font-size: 1.3rem;
   margin-bottom: 2.5rem;
@@ -163,34 +247,17 @@ nav {
   opacity: 0.9;
   line-height: 1.7;
   font-weight: 400;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   max-width: 600px;
 }
 
-/* Enhanced gradient animation */
-@keyframes gradient {
-  0% { 
-    background-position: 0% 50%; 
-    filter: hue-rotate(0deg);
-  }
-  50% { 
-    background-position: 100% 50%; 
-    filter: hue-rotate(90deg);
-  }
-  100% { 
-    background-position: 0% 50%; 
-    filter: hue-rotate(0deg);
-  }
-}
-
-/* Improve stats visibility */
+/* Stats Section */
 #home.active .hero-stats {
   display: flex;
   gap: 3rem;
   margin-bottom: 3rem;
   justify-content: flex-start;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   padding: 1.5rem 2rem;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -204,7 +271,7 @@ nav {
   display: block;
   font-size: 2.5rem;
   font-weight: 800;
-  color: #feca57;
+  color: #a8edea;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   line-height: 1;
 }
@@ -213,14 +280,12 @@ nav {
   font-size: 1rem;
   opacity: 0.9;
   font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Improve button visibility */
+/* Buttons - Fixed Hire Me Button */
 #home.active .hero-buttons {
   display: flex;
   gap: 1.5rem;
-  margin-bottom: 2rem;
   justify-content: flex-start;
 }
 
@@ -235,79 +300,146 @@ nav {
   align-items: center;
   gap: 0.8rem;
   font-size: 1.1rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 #home.active .btn-primary {
-  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
   color: white;
-  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
 }
 
 #home.active .btn-primary:hover {
-  background: linear-gradient(45deg, #ff5252, #ff7b7b);
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+  box-shadow: 0 12px 35px rgba(79, 172, 254, 0.6);
 }
 
 #home.active .btn-secondary {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 #home.active .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.3);
 }
 
-/* Improve scroll indicator */
-#home.active .scroll-indicator {
-  color: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  animation: bounce 2s infinite;
-  font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+/* Remove Scroll Indicator */
+.scroll-indicator {
+  display: none !important;
 }
 
-#home.active .scroll-indicator i {
-  margin-top: 0.8rem;
-  display: block;
+/* Background Elements */
+#home.active .hero-bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#home.active .bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  animation: float 6s ease-in-out infinite;
+}
+
+#home.active .circle-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+#home.active .circle-2 {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+#home.active .circle-3 {
+  width: 100px;
+  height: 100px;
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 4s;
+}
+
+#home.active .floating-element {
+  position: absolute;
   font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.1);
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Mobile responsiveness for text */
+#home.active .element-1 {
+  top: 30%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+#home.active .element-2 {
+  top: 50%;
+  left: 10%;
+  animation-delay: 3s;
+}
+
+#home.active .element-3 {
+  bottom: 30%;
+  right: 15%;
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-  #home.active .hero-text h1 {
-    font-size: 2.8rem;
+  #home.active .hero-content {
+    grid-template-columns: 1fr;
     text-align: center;
+    gap: 2rem;
   }
   
-  #home.active .subtitle {
-    font-size: 1.4rem;
-    text-align: center;
-  }
-  
+  #home.active .hero-text h1,
+  #home.active .subtitle,
   #home.active .hero-description {
-    font-size: 1.1rem;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
   }
   
   #home.active .hero-stats {
+    justify-content: center;
     gap: 1.5rem;
     padding: 1rem 1.5rem;
   }
   
-  #home.active .stat-number {
-    font-size: 2rem;
+  #home.active .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
-  #home.active .stat-label {
-    font-size: 0.9rem;
+  #home.active .profile-image-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  #home.active .hero-text h1 {
+    font-size: 2.8rem;
   }
 }
 
@@ -316,19 +448,22 @@ nav {
     font-size: 2.2rem;
   }
   
-  #home.active .hero-text h1 .gradient-text {
-    font-size: 2.2rem;
-  }
-  
-  #home.active .subtitle {
-    font-size: 1.2rem;
-  }
-  
   #home.active .hero-stats {
     flex-direction: column;
     gap: 1rem;
   }
+  
+  #home.active .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #home.active .btn {
+    width: 220px;
+    justify-content: center;
+  }
 }
+
 
 /* Other pages should have their own backgrounds */
 #about.active {
