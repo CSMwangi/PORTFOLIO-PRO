@@ -29,23 +29,31 @@
   </header>
 
   <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <div class="profile-image-container">
-        <img src="assets/images/profile.jpg" alt="Antony Mwangi" class="profile-pic" />
-        <div class="image-placeholder">
-          <i class="fas fa-user"></i>
-          <span>Add your profile photo</span>
-        </div>
-      </div>
-      <h1>Hi, I'm <span>Antony Mwangi</span></h1>
-      <p id="subtitle">Computer Science Graduate & <span class="typing-text" id="typing-text"></span></p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn">Explore My Work</a>
-        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+<section id="home" class="hero">
+  <div class="hero-content">
+    <!-- Profile Image at the TOP -->
+    <div class="profile-image-container">
+      <img 
+        src="assets/images/profile.jpg" 
+        alt="Antony Mwangi" 
+        class="profile-pic" 
+        onerror="this.style.display='none'"
+      />
+      <div class="image-placeholder">
+        <i class="fas fa-user"></i>
+        <span>Add Profile Photo</span>
       </div>
     </div>
-  </section>
+    
+    <!-- Text content BELOW the image -->
+    <h1>Hi, I'm <span>Antony Mwangi</span></h1>
+    <p id="subtitle">Computer Science Graduate & <span class="typing-text" id="typing-text"></span></p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn">Explore My Work</a>
+      <a href="#contact" class="btn btn-secondary">Contact Me</a>
+    </div>
+  </div>
+</section>
 
   <!-- ABOUT -->
   <section id="about" class="fade-in">
