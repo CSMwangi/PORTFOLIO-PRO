@@ -265,6 +265,17 @@ nav {
 .hero-buttons {
   order: 4; /* Buttons last */
 }
+.hero-content h1 {
+  order: 2; /* Heading second */
+}
+
+#subtitle {
+  order: 3; /* Subtitle third */
+}
+
+.hero-buttons {
+  order: 4; /* Buttons last */
+}
 
 .profile-image-container {
   position: relative;
