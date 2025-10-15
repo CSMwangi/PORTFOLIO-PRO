@@ -257,31 +257,23 @@ nav {
   position: relative;
 }
 
-/* FIXED PROFILE IMAGE SECTION */
 .profile-image-container {
   position: relative;
   width: 200px;
   height: 200px;
   margin: 0 auto 2rem;
-  border-radius: 50%;
-  border: 5px solid white;
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
 }
 
-/* Real profile image - hidden by default if not available */
 .profile-pic {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  border: 5px solid white;
+  box-shadow: var(--shadow-lg);
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
-/* Placeholder - always visible but hidden when image loads */
 .image-placeholder {
   width: 100%;
   height: 100%;
@@ -292,7 +284,8 @@ nav {
   align-items: center;
   justify-content: center;
   color: var(--gray);
-  transition: var(--transition);
+  border: 5px solid white;
+  box-shadow: var(--shadow-lg);
 }
 
 .image-placeholder i {
@@ -304,12 +297,6 @@ nav {
   font-size: 0.8rem;
   text-align: center;
   padding: 0 0.5rem;
-  font-weight: 500;
-}
-
-/* Hide placeholder when image is loaded */
-.profile-image-container:has(.profile-pic:not([style*="display: none"])) .image-placeholder {
-  display: none;
 }
 
 .hero h1 {
@@ -559,24 +546,7 @@ footer p {
   opacity: 0.9;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* Desktop First Approach */
-@media (max-width: 1024px) {
-  h1 {
-    font-size: 3rem;
-  }
-  
-  h2 {
-    font-size: 2.2rem;
-  }
-  
-  .hero-content {
-    padding: 0 2rem;
-  }
-}
-
-/* Tablet */
+/* Responsive Design */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.5rem;
@@ -584,10 +554,8 @@ footer p {
   
   h2 {
     font-size: 2rem;
-    margin-bottom: 2rem;
   }
   
-  /* Navigation for mobile */
   .nav-links {
     display: none;
     position: absolute;
@@ -596,10 +564,10 @@ footer p {
     width: 100%;
     background: white;
     flex-direction: column;
-    padding: 2rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   
   .nav-links.active {
@@ -614,7 +582,6 @@ footer p {
     display: none;
   }
   
-  /* Hero section mobile */
   .hero h1 {
     font-size: 2.5rem;
   }
@@ -623,59 +590,36 @@ footer p {
     font-size: 1.2rem;
   }
   
-  .profile-image-container {
-    width: 180px;
-    height: 180px;
-  }
-  
   .hero-buttons {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
   }
   
   .hero-buttons .btn {
     width: 100%;
-    max-width: 280px;
+    max-width: 250px;
   }
   
-  /* Sections padding */
-  section {
-    padding: 4rem 1rem;
-  }
-  
-  /* Card layouts */
-  .card-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .expertise-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  /* Contact links */
   .contact-links {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
   }
   
   .contact-link {
     width: 100%;
-    max-width: 280px;
+    max-width: 250px;
     justify-content: center;
   }
   
-  /* Project links */
   .project-links {
     flex-direction: column;
-    gap: 0.8rem;
+  }
+  
+  section {
+    padding: 3rem 1rem;
   }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
   h1 {
     font-size: 2rem;
@@ -687,62 +631,11 @@ footer p {
   
   .hero {
     padding-top: 70px;
-    min-height: 90vh;
   }
   
   .profile-image-container {
     width: 150px;
     height: 150px;
-    margin-bottom: 1.5rem;
-  }
-  
-  .image-placeholder i {
-    font-size: 2.5rem;
-  }
-  
-  .hero-content {
-    padding: 0 1rem;
-  }
-  
-  #subtitle {
-    font-size: 1.1rem;
-  }
-  
-  section {
-    padding: 3rem 1rem;
-  }
-  
-  .card {
-    padding: 1.5rem;
-  }
-  
-  nav {
-    padding: 1rem;
-  }
-  
-  .logo {
-    font-size: 1.3rem;
-  }
-}
-
-/* Small mobile */
-@media (max-width: 360px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-  
-  h2 {
-    font-size: 1.6rem;
-  }
-  
-  .profile-image-container {
-    width: 130px;
-    height: 130px;
-  }
-  
-  .btn {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.9rem;
   }
 }
 
