@@ -243,9 +243,27 @@ nav {
 }
 
 .hero-content {
-  max-width: 800px;
-  z-index: 1;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-image-container {
+  order: 1; /* Image first */
+  margin-bottom: 2rem;
+}
+
+.hero-content h1 {
+  order: 2; /* Heading second */
+}
+
+#subtitle {
+  order: 3; /* Subtitle third */
+}
+
+.hero-buttons {
+  order: 4; /* Buttons last */
 }
 
 .profile-image-container {
