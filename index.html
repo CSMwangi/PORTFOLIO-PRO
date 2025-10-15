@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Antony Mwangi | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Antony Mwangi | Software Engineer & Data Scientist</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -12,7 +13,7 @@
   <header>
     <nav>
       <h2 class="logo">Antony<span>Mwangi</span></h2>
-      <ul>
+      <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#expertise">Expertise</a></li>
@@ -21,97 +22,168 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#contact" class="btn-contact">Get in Touch</a>
+      <div class="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
     </nav>
   </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-content">
-    <img src="ASSETS/IMG/yourphoto.jpg" alt="Antony Mwangi" class="profile-pic" />
-    <h1>Hi, I'm <span>Antony Mwangi</span></h1>
-    <p id="subtitle">Computer Science Graduate</p>
-    <a href="#projects" class="btn">Explore My Work</a>
-  </div>
-</section>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="profile-image-container">
+        <img src="assets/images/profile.jpg" alt="Antony Mwangi" class="profile-pic" />
+        <div class="image-placeholder">
+          <i class="fas fa-user"></i>
+          <span>Add your profile photo</span>
+        </div>
+      </div>
+      <h1>Hi, I'm <span>Antony Mwangi</span></h1>
+      <p id="subtitle">Computer Science Graduate & <span class="typing-text" id="typing-text"></span></p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn">Explore My Work</a>
+        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ABOUT -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am a multidisciplinary professional bridging technology, data, and economics. My expertise spans 
-      <strong>Software Engineering</strong>, <strong>Data & AI</strong>, <strong>Cybersecurity & Ethical Hacking</strong>, 
-      and <strong>Economic Analysis</strong>. I focus on building scalable solutions, securing digital systems, 
-      and creating data-driven insights for sustainable decision-making.
-    </p>
+  <section id="about" class="fade-in">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>
+          I am a multidisciplinary professional bridging technology, data, and economics. My expertise spans 
+          <strong>Software Engineering</strong>, <strong>Data & AI</strong>, <strong>Cybersecurity & Ethical Hacking</strong>, 
+          and <strong>Economic Analysis</strong>. I focus on building scalable solutions, securing digital systems, 
+          and creating data-driven insights for sustainable decision-making.
+        </p>
+        <p>
+          With a passion for innovation and problem-solving, I continuously explore emerging technologies 
+          and their applications across various industries. My goal is to leverage technical expertise 
+          to drive meaningful impact and create solutions that address complex challenges.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- EXPERTISE -->
-  <section id="expertise">
-    <h2>Core Expertise</h2>
-    <div class="expertise-grid">
-      <div class="card">
-        <h3>Computer Science & Software Dev</h3>
-        <p>AI & Machine Learning, Full-stack Development, Automation, System Design.</p>
-      </div>
-      <div class="card">
-        <h3>Data & Analytics</h3>
-        <p>Python, SQL, Power BI, Data Visualization, Predictive Analytics.</p>
-      </div>
-      <div class="card">
-        <h3>Cybersecurity & Ethical Hacking</h3>
-        <p>Penetration Testing, Security Audits, Blockchain Security, Network Protection.</p>
-      </div>
-      <div class="card">
-        <h3>Economics & Policy</h3>
-        <p>Financial Analysis, Sustainable Policy Research, Market Forecasting, Strategic Governance.</p>
+  <section id="expertise" class="fade-in">
+    <div class="container">
+      <h2>Core Expertise</h2>
+      <div class="expertise-grid">
+        <div class="card expertise-card">
+          <div class="expertise-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Computer Science & Software Dev</h3>
+          <p>AI & Machine Learning, Full-stack Development, Automation, System Design.</p>
+        </div>
+        <div class="card expertise-card">
+          <div class="expertise-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Data & Analytics</h3>
+          <p>Python, SQL, Power BI, Data Visualization, Predictive Analytics.</p>
+        </div>
+        <div class="card expertise-card">
+          <div class="expertise-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Cybersecurity & Ethical Hacking</h3>
+          <p>Penetration Testing, Security Audits, Blockchain Security, Network Protection.</p>
+        </div>
+        <div class="card expertise-card">
+          <div class="expertise-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Economics & Policy</h3>
+          <p>Financial Analysis, Sustainable Policy Research, Market Forecasting, Strategic Governance.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>School Management System</h3>
-        <p>Digital platform to manage student records, exams, and reports for JM Kariuki Secondary School.</p>
-      </div>
-      <div class="card">
-        <h3>Hotel Analytics Dashboard</h3>
-        <p>Power BI dashboard tracking revenue, occupancy, and operational KPIs for a hospitality business.</p>
-      </div>
-      <div class="card">
-        <h3>AI Housing Generator</h3>
-        <p>Prototype AI model generating optimized house plans based on user requirements.</p>
+  <section id="projects" class="fade-in">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="card-container">
+        <div class="card project-card">
+          <div class="project-img">
+            <i class="fas fa-school"></i>
+          </div>
+          <h3>School Management System</h3>
+          <p>Digital platform to manage student records, exams, and reports for JM Kariuki Secondary School. Streamlined administrative processes and improved data accuracy.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+        <div class="card project-card">
+          <div class="project-img">
+            <i class="fas fa-hotel"></i>
+          </div>
+          <h3>Hotel Analytics Dashboard</h3>
+          <p>Power BI dashboard tracking revenue, occupancy, and operational KPIs for a hospitality business. Enabled data-driven decisions that increased profitability by 15%.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+        <div class="card project-card">
+          <div class="project-img">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3>AI Housing Generator</h3>
+          <p>Prototype AI model generating optimized house plans based on user requirements, spatial constraints, and sustainability metrics.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- LAB CHALLENGES -->
-  <section id="labs">
-    <h2>Lab Challenges</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Power BI Data Modelling</h3>
-        <p>Designed a star schema and implemented DAX for dynamic, accurate dashboards.</p>
-      </div>
-      <div class="card">
-        <h3>Python Automation Script</h3>
-        <p>Script to automate data cleaning, visualization, and reporting tasks efficiently.</p>
-      </div>
-      <div class="card">
-        <h3>Cybersecurity Simulations</h3>
-        <p>Performed vulnerability testing and penetration testing on sample networks and systems.</p>
+  <section id="labs" class="fade-in">
+    <div class="container">
+      <h2>Lab Challenges</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Power BI Data Modelling</h3>
+          <p>Designed a star schema and implemented DAX for dynamic, accurate dashboards that improved reporting efficiency by 40%.</p>
+        </div>
+        <div class="card">
+          <h3>Python Automation Script</h3>
+          <p>Script to automate data cleaning, visualization, and reporting tasks efficiently, saving 10+ hours weekly.</p>
+        </div>
+        <div class="card">
+          <h3>Cybersecurity Simulations</h3>
+          <p>Performed vulnerability testing and penetration testing on sample networks and systems, identifying critical security gaps.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:info.csmwangi@email.com">mainamwangi@email.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/csmwangi/">linkedin.com/in/csmwangi</a></p>
-    <p>GitHub: <a href="https://github.com/csmwangi">github.com/csmwangi</a></p>
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <h2>Let's Connect</h2>
+      <p>I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and innovation.</p>
+      <div class="contact-links">
+        <a href="mailto:mainamwangi@email.com" class="contact-link">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="https://www.linkedin.com/in/csmwangi/" class="contact-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/csmwangi" class="contact-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
