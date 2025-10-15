@@ -22,3 +22,28 @@ window.addEventListener('scroll', () => {
     header.style.boxShadow = 'none';
   }
 });
+
+
+// Titles loop
+const subtitles = [
+  "Computer Science Graduate",
+  "Data & AI Expert",
+  "Ethical Hacker",
+  "Economics Student"
+];
+
+let current = 0;
+const subtitleElement = document.getElementById("subtitle");
+
+function loopSubtitles() {
+  subtitleElement.style.opacity = 0; // fade out
+  setTimeout(() => {
+    subtitleElement.textContent = subtitles[current];
+    subtitleElement.style.opacity = 1; // fade in
+    current = (current + 1) % subtitles.length; // loop
+  }, 500); // fade transition duration
+}
+
+// Start loop every 3 seconds
+setInterval(loopSubtitles, 3000);
+
