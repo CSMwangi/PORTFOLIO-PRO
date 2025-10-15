@@ -114,7 +114,9 @@ nav {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: hidden
+   padding-top: 80px;
+  min-height: calc(100vh - 80px);
 }
 
 #home.active .hero-container {
@@ -1064,4 +1066,22 @@ nav {
 
 #home.active .hero-text h1 {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+/* Add Footer Styles */
+footer {
+  background: #2c3e50;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
 }
