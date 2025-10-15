@@ -79,12 +79,10 @@ function initTypingEffect() {
     if (!typingElement) return;
     
     const texts = [
-        "Data Scientist", 
-        "Software Engineer", 
-        "Cybersecurity Analyst", 
+        "Data & AI Expert", 
+        "Software Develpment", 
+        "Cybersecurity - Ethical Hacking", 
         "Economic Analyst",
-        "AI Enthusiast",
-        "Problem Solver"
     ];
     let textIndex = 0;
     let charIndex = 0;
