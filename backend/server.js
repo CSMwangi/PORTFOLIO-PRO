@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-const uri = "mongodb+srv://infocsmwangi_db_user:NbuN%214vPcyZNgxy%40cluster0.9i9ihrt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+MONGO_URI="mongodb+srv://infocsmwangi_db_user:NbuN!4vPcyZNgxy%40cluster0.9i9ihrt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 mongoose.connect(uri)
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch(err => console.error("❌ Connection error:", err));
