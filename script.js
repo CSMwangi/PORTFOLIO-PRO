@@ -170,4 +170,39 @@ function initTypingEffect() {
     
     // Start typing effect
     setTimeout(type, 1000);
+    // Add this to your existing JavaScript (in DOMContentLoaded function)
+function initProfileImage() {
+    const profileImage = document.getElementById('profile-image');
+    const placeholder = document.getElementById('image-placeholder');
+    
+    if (profileImage) {
+        profileImage.onload = function() {
+            // Image loaded successfully
+            if (placeholder) placeholder.style.display = 'none';
+        };
+        
+        profileImage.onerror = function() {
+            // Image failed to load
+            if (placeholder) {
+                placeholder.style.display = 'flex';
+                profileImage.style.display = 'none';
+            }
+        };
+        
+        // Trigger initial check
+        if (profileImage.complete) {
+            profileImage.onload();
+        }
+    }
+}
+
+// Call this function in your DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // ... your existing navigation code ...
+    
+    // Initialize profile image
+    initProfileImage();
+    
+    // ... rest of your code ...
+});
 }
