@@ -1119,3 +1119,82 @@ footer {
 #home.active .hero-text h1 .gradient-text {
   word-spacing: 16px;
 }
+.profile-hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 4px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    border: 4px solid white;
+}
+
+.profile-glow {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    filter: blur(20px);
+    opacity: 0.3;
+    z-index: -1;
+    animation: glow-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+    0% { opacity: 0.2; transform: scale(0.95); }
+    100% { opacity: 0.4; transform: scale(1.05); }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .profile-image-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .profile-glow {
+        width: 170px;
+        height: 170px;
+    }
+    
+    .image-placeholder {
+        font-size: 2rem;
+    }
+}
