@@ -464,6 +464,31 @@ nav {
     width: 220px;
     justify-content: center;
   }
+.nav-link, .mobile-menu, .scroll-indicator {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav, .nav-link, .mobile-menu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
 }
 
 
