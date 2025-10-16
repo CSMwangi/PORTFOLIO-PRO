@@ -31,15 +31,56 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Close mobile menu if open
-        if (navLinksContainer && navLinksContainer.classList.contains('active')) {
-            navLinksContainer.classList.remove('active');
-        }
+        closeMobileMenu();
         
         // Scroll to top smoothly
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
+    }
+    
+    // Function to close mobile menu
+    function closeMobileMenu() {
+        if (navLinksContainer) {
+            navLinksContainer.classList.remove('active');
+        }
+        if (mobileMenu) {
+            mobileMenu.classList.remove('active');
+            const menuIcon = mobileMenu.querySelector('i');
+            if (menuIcon) {
+                menuIcon.className = 'fas fa-bars';
+            }
+        }
+        document.body.classList.remove('menu-open');
+    }
+    
+    // Enhanced mobile menu functionality
+    if (mobileMenu && navLinksContainer) {
+        const handleMobileMenu = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isOpening = !navLinksContainer.classList.contains('active');
+            
+            // Toggle active class
+            navLinksContainer.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+            
+            // Change menu icon
+            const menuIcon = mobileMenu.querySelector('i');
+            if (menuIcon) {
+                if (navLinksContainer.classList.contains('active')) {
+                    menuIcon.className = 'fas fa-times';
+                } else {
+                    menuIcon.className = 'fas fa-bars';
+                }
+            }
+        };
+        
+        mobileMenu.addEventListener('click', handleMobileMenu);
+        mobileMenu.addEventListener('touchstart', handleMobileMenu, { passive: false });
     }
     
     // Enhanced event listener for nav links (works for both click and touch)
@@ -76,24 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('touchstart', handleNavigation, { passive: false });
     });
     
-    // Enhanced mobile menu functionality
-    if (mobileMenu && navLinksContainer) {
-        const handleMobileMenu = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Mobile menu clicked'); // Debug
-            navLinksContainer.classList.toggle('active');
-        };
-        
-        mobileMenu.addEventListener('click', handleMobileMenu);
-        mobileMenu.addEventListener('touchstart', handleMobileMenu, { passive: false });
-    }
-    
     // Enhanced close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
         if (navLinksContainer && navLinksContainer.classList.contains('active') && 
             !e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
-            navLinksContainer.classList.remove('active');
+            closeMobileMenu();
         }
     });
     
@@ -101,9 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchstart', function(e) {
         if (navLinksContainer && navLinksContainer.classList.contains('active') && 
             !e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
-            navLinksContainer.classList.remove('active');
+            closeMobileMenu();
         }
     });
+    
+    // Initialize profile image
+    initProfileImage();
     
     // Initialize typing effect
     initTypingEffect();
@@ -127,6 +158,35 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Mobile menu found:', !!mobileMenu);
 });
 
+// Profile image loading handler
+function initProfileImage() {
+    const profileImage = document.getElementById('profile-image');
+    const placeholder = document.getElementById('image-placeholder');
+    
+    if (profileImage && placeholder) {
+        profileImage.onload = function() {
+            // Image loaded successfully
+            placeholder.style.display = 'none';
+            profileImage.style.display = 'block';
+        };
+        
+        profileImage.onerror = function() {
+            // Image failed to load
+            placeholder.style.display = 'flex';
+            profileImage.style.display = 'none';
+        };
+        
+        // Trigger initial check
+        if (profileImage.complete) {
+            profileImage.onload();
+        } else {
+            // If image is still loading, show placeholder temporarily
+            placeholder.style.display = 'flex';
+            profileImage.style.display = 'none';
+        }
+    }
+}
+
 // Enhanced typing effect function
 function initTypingEffect() {
     const typingElement = document.getElementById('typing-text');
@@ -134,7 +194,7 @@ function initTypingEffect() {
     
     const texts = [
         "Data & AI Expert", 
-        "Software Develpment", 
+        "Software Development", 
         "Cybersecurity - Ethical Hacking", 
         "Economic Analyst",
     ];
@@ -170,81 +230,61 @@ function initTypingEffect() {
     
     // Start typing effect
     setTimeout(type, 1000);
-    // Add this to your existing JavaScript (in DOMContentLoaded function)
-function initProfileImage() {
-    const profileImage = document.getElementById('profile-image');
-    const placeholder = document.getElementById('image-placeholder');
+}
+
+// Handle page refresh and direct URL access
+window.addEventListener('load', function() {
+    // Check if there's a hash in the URL
+    const hash = window.location.hash.substring(1);
+    const validSections = ['home', 'about', 'expertise', 'projects', 'labs', 'contact'];
     
-    if (profileImage) {
-        profileImage.onload = function() {
-            // Image loaded successfully
-            if (placeholder) placeholder.style.display = 'none';
-        };
+    if (hash && validSections.includes(hash)) {
+        // Show the section from URL hash
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
         
-        profileImage.onerror = function() {
-            // Image failed to load
-            if (placeholder) {
-                placeholder.style.display = 'flex';
-                profileImage.style.display = 'none';
-            }
-        };
+        // Hide all pages and remove active classes
+        pages.forEach(page => page.classList.remove('active'));
+        navLinks.forEach(link => link.classList.remove('active'));
         
-        // Trigger initial check
-        if (profileImage.complete) {
-            profileImage.onload();
+        // Show target page
+        const targetPage = document.getElementById(hash);
+        if (targetPage) {
+            targetPage.classList.add('active');
+        }
+        
+        // Activate corresponding nav link
+        const targetLink = document.querySelector(`.nav-link[data-section="${hash}"]`);
+        if (targetLink) {
+            targetLink.classList.add('active');
+        }
+    } else {
+        // Default to home page
+        const homePage = document.getElementById('home');
+        const homeLink = document.querySelector('.nav-link[data-section="home"]');
+        
+        if (homePage && homeLink) {
+            homePage.classList.add('active');
+            homeLink.classList.add('active');
         }
     }
-}
-
-// Call this function in your DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function() {
-    // ... your existing navigation code ...
     
-    // Initialize profile image
-    initProfileImage();
-    
-    // ... rest of your code ...
-});
-}
-
-// Enhanced mobile menu functionality
-if (mobileMenu && navLinksContainer) {
-    const handleMobileMenu = function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    // Close mobile menu on window resize (if mobile menu is open and we resize to desktop)
+    window.addEventListener('resize', function() {
+        const navLinksContainer = document.querySelector('.nav-links');
+        const mobileMenu = document.querySelector('.mobile-menu');
         
-        const isOpening = !navLinksContainer.classList.contains('active');
-        
-        // Toggle active class
-        navLinksContainer.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-        
-        // Change menu icon
-        const menuIcon = mobileMenu.querySelector('i');
-        if (menuIcon) {
-            if (navLinksContainer.classList.contains('active')) {
-                menuIcon.className = 'fas fa-times';
-            } else {
-                menuIcon.className = 'fas fa-bars';
-            }
+        if (window.innerWidth > 768 && navLinksContainer && navLinksContainer.classList.contains('active')) {
+            closeMobileMenu();
         }
-    };
-    
-    mobileMenu.addEventListener('click', handleMobileMenu);
-    mobileMenu.addEventListener('touchstart', handleMobileMenu, { passive: false });
-}
-
-// Enhanced close mobile menu when clicking outside
-document.addEventListener('click', function(e) {
-    if (navLinksContainer && navLinksContainer.classList.contains('active') && 
-        !e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
-        closeMobileMenu();
-    }
+    });
 });
 
-// Function to close mobile menu
+// Global closeMobileMenu function for resize events
 function closeMobileMenu() {
+    const navLinksContainer = document.querySelector('.nav-links');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
     if (navLinksContainer) {
         navLinksContainer.classList.remove('active');
     }
@@ -258,12 +298,51 @@ function closeMobileMenu() {
     document.body.classList.remove('menu-open');
 }
 
-// Close menu when navigating on mobile
-function showSection(sectionId) {
-    // ... your existing showSection code ...
-    
-    // Close mobile menu if open
-    closeMobileMenu();
-    
-    // ... rest of your showSection code ...
+// Add smooth scrolling for better UX
+document.addEventListener('DOMContentLoaded', function() {
+    // Add smooth scroll to all internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
+// Error handling for images
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle any broken images site-wide
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            console.warn('Image failed to load:', this.src);
+            // You could set a placeholder image here if needed
+            // this.src = 'assets/images/placeholder.jpg';
+        });
+    });
+});
+
+// Performance optimization: Debounce resize events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }
+
+// Debounced resize handler
+window.addEventListener('resize', debounce(function() {
+    // Handle any responsive behavior that needs debouncing
+}, 250));
