@@ -206,3 +206,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // ... rest of your code ...
 });
 }
+
+// Enhanced mobile menu functionality
+if (mobileMenu && navLinksContainer) {
+    const handleMobileMenu = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isOpening = !navLinksContainer.classList.contains('active');
+        
+        // Toggle active class
+        navLinksContainer.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+        
+        // Change menu icon
+        const menuIcon = mobileMenu.querySelector('i');
+        if (menuIcon) {
+            if (navLinksContainer.classList.contains('active')) {
+                menuIcon.className = 'fas fa-times';
+            } else {
+                menuIcon.className = 'fas fa-bars';
+            }
+        }
+    };
+    
+    mobileMenu.addEventListener('click', handleMobileMenu);
+    mobileMenu.addEventListener('touchstart', handleMobileMenu, { passive: false });
+}
+
+// Enhanced close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    if (navLinksContainer && navLinksContainer.classList.contains('active') && 
+        !e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
+        closeMobileMenu();
+    }
+});
+
+// Function to close mobile menu
+function closeMobileMenu() {
+    if (navLinksContainer) {
+        navLinksContainer.classList.remove('active');
+    }
+    if (mobileMenu) {
+        mobileMenu.classList.remove('active');
+        const menuIcon = mobileMenu.querySelector('i');
+        if (menuIcon) {
+            menuIcon.className = 'fas fa-bars';
+        }
+    }
+    document.body.classList.remove('menu-open');
+}
+
+// Close menu when navigating on mobile
+function showSection(sectionId) {
+    // ... your existing showSection code ...
+    
+    // Close mobile menu if open
+    closeMobileMenu();
+    
+    // ... rest of your showSection code ...
+}
