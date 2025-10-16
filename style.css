@@ -411,7 +411,7 @@ nav {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   #home.active .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
