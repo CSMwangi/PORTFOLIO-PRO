@@ -194,9 +194,8 @@ function initTypingEffect() {
     
     const texts = [
         "Data & AI Expert", 
-        "Software Development", 
-        "Cybersecurity - Ethical Hacking", 
-        "Economic Analyst",
+        "Software Engineer", 
+        "Ethical Hacker", 
     ];
     let textIndex = 0;
     let charIndex = 0;
