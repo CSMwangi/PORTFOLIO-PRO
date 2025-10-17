@@ -228,7 +228,7 @@ nav, .nav-link, .mobile-menu {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   border: 4px solid white;
   transition: transform 0.3s ease;
 }
@@ -244,8 +244,10 @@ nav, .nav-link, .mobile-menu {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: white ;
   display: flex;
+
+  
   align-items: center;
   justify-content: center;
   color: white;
