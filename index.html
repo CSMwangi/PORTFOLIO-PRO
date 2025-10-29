@@ -19,8 +19,10 @@
         <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
         <li><a href="#labs" class="nav-link" data-section="labs">Labs</a></li>
         <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
-        <div class="nav-indicator"></div>
       </ul>
+      
+      <div class="nav-indicator"></div>
+      
       <a href="#contact" class="btn-contact nav-link" data-section="contact">Contact Me</a>
       <div class="mobile-menu">
         <i class="fas fa-bars"></i>
@@ -35,6 +37,9 @@
         <div class="profile-hero">
           <div class="profile-image-container">
             <img src="images/main.jpg" alt="Antony Mwangi" class="profile-pic" />
+            <div class="image-placeholder" id="image-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
           </div>
           <div class="profile-glow"></div>
         </div>
@@ -64,10 +69,10 @@
           </div>
 
           <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary nav-link" data-section="projects">
+            <a href="#projects" class="btn btn-primary" data-section="projects">
               <i class="fas fa-rocket"></i>View My Projects
             </a>
-            <a href="#contact" class="btn btn-secondary nav-link" data-section="contact">
+            <a href="#contact" class="btn btn-secondary" data-section="contact">
               <i class="fas fa-paper-plane"></i>Contact Me
             </a>
           </div>
@@ -91,38 +96,38 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION - SIMPLE VERSION -->
-<section id="about" class="page">
-  <div class="container">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <p>
-          I'm a <strong>Cybersecurity Engineer</strong> passionate about AI security, protecting digital systems and data. 
-          With a <strong>Computer Science degree</strong> & <strong>Ethical hacking training</strong> from Cyber Shujaa Academy.
-          I focus on building secure, resilient systems that withstand modern threats.
-        </p>
-        
-        <p>
-          My approach combines technical expertise with strategic thinking. I fix vulnerabilities, 
-          build security into the foundation of digital products and services.
-        </p>
-        
-        <p>
-          Outside of work, I stay updated on the latest security trends, participate in cybersecurity challenges, 
-          and enjoy activities that sharpen strategic thinking.
-        </p>
-        
-        <div class="mission-statement">
-          <h3>My Mission</h3>
-          <p class="mission-text">
-            Code. Think. Govern ~ To build secure and innovative systems that inspire trust.
+  <!-- ABOUT SECTION -->
+  <section id="about" class="page">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I'm a <strong>Cybersecurity Engineer</strong> passionate about AI security, protecting digital systems and data. 
+            With a <strong>Computer Science degree</strong> & <strong>Ethical hacking training</strong> from Cyber Shujaa Academy.
+            I focus on building secure, resilient systems that withstand modern threats.
           </p>
+          
+          <p>
+            My approach combines technical expertise with strategic thinking. I fix vulnerabilities, 
+            build security into the foundation of digital products and services.
+          </p>
+          
+          <p>
+            Outside of work, I stay updated on the latest security trends, participate in cybersecurity challenges, 
+            and enjoy activities that sharpen strategic thinking.
+          </p>
+          
+          <div class="mission-statement">
+            <h3>My Mission</h3>
+            <p class="mission-text">
+              Code. Think. Govern ~ To build secure and innovative systems that inspire trust.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- EXPERTISE SECTION -->
   <section id="expertise" class="page">
@@ -292,6 +297,9 @@
       <div class="footer-copyright">
         &copy; 2025 Antony Mwangi. All rights reserved.
       </div>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
