@@ -193,9 +193,7 @@ function initTypingEffect() {
     if (!typingElement) return;
     
     const texts = [
-        "Data & AI ", 
-        "Software Engineering", 
-        "Ethical Hacking",
+        "Data & AI ",
         "IT support",
     ];
     let textIndex = 0;
