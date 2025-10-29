@@ -1,9 +1,23 @@
-// Navigation functionality
+// Navigation functionality with active indicator
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     const pages = document.querySelectorAll('.page');
     const mobileMenu = document.querySelector('.mobile-menu');
     const navLinksContainer = document.querySelector('.nav-links');
+    
+    // Navigation Active Indicator Function
+    function updateNavIndicator() {
+        const activeLink = document.querySelector('.nav-link.active');
+        const navIndicator = document.querySelector('.nav-indicator');
+        
+        if (activeLink && navIndicator) {
+            const linkRect = activeLink.getBoundingClientRect();
+            const navRect = activeLink.closest('nav').getBoundingClientRect();
+            
+            navIndicator.style.width = `${linkRect.width}px`;
+            navIndicator.style.left = `${linkRect.left - navRect.left}px`;
+        }
+    }
     
     // Function to show a specific section
     function showSection(sectionId) {
@@ -29,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.add('active');
             }
         });
+        
+        // Update navigation indicator
+        updateNavIndicator();
         
         // Close mobile menu if open
         closeMobileMenu();
@@ -133,6 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Initialize navigation indicator
+    updateNavIndicator();
+    
     // Initialize profile image
     initProfileImage();
     
@@ -150,6 +170,9 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollIndicator.addEventListener('click', handleScrollIndicator);
         scrollIndicator.addEventListener('touchstart', handleScrollIndicator, { passive: false });
     }
+    
+    // Update indicator on window resize
+    window.addEventListener('resize', updateNavIndicator);
     
     // Debug: Log initial state
     console.log('Navigation initialized');
@@ -267,6 +290,9 @@ window.addEventListener('load', function() {
         }
     }
     
+    // Update navigation indicator after page load
+    setTimeout(updateNavIndicator, 100);
+    
     // Close mobile menu on window resize (if mobile menu is open and we resize to desktop)
     window.addEventListener('resize', function() {
         const navLinksContainer = document.querySelector('.nav-links');
@@ -275,6 +301,9 @@ window.addEventListener('load', function() {
         if (window.innerWidth > 768 && navLinksContainer && navLinksContainer.classList.contains('active')) {
             closeMobileMenu();
         }
+        
+        // Update indicator on resize
+        updateNavIndicator();
     });
 });
 
@@ -340,7 +369,7 @@ function debounce(func, wait) {
     };
 }
 
-// Debounced resize handler
+// Debounced resize handler for navigation indicator
 window.addEventListener('resize', debounce(function() {
-    // Handle any responsive behavior that needs debouncing
+    updateNavIndicator();
 }, 250));
