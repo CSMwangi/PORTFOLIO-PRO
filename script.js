@@ -9,7 +9,7 @@ function initializeEverything() {
     const mobileMenu = document.querySelector('.mobile-menu');
     const navLinksContainer = document.querySelector('.nav-links');
     const heroButtons = document.querySelectorAll('.hero-buttons .btn');
-    const body = document.body; // ADD THIS LINE
+    const body = document.body;
 
     // Update navigation indicator
     function updateNavIndicator() {
@@ -25,7 +25,7 @@ function initializeEverything() {
         }
     }
 
-    // ADD THIS FUNCTION - Header color switching
+    // Header color switching
     function updateHeaderColor(sectionId) {
         // Remove all section classes from body
         body.classList.remove('home-active', 'about-active', 'expertise-active', 'projects-active', 'labs-active', 'contact-active');
@@ -34,17 +34,24 @@ function initializeEverything() {
         body.classList.add(`${sectionId}-active`);
     }
 
-    // Show specific section
+    // Show specific section - MODIFIED FOR TRUE PAGE ISOLATION
     function showSection(sectionId) {
         console.log('Showing section:', sectionId);
         
-        // Hide all pages
-        pages.forEach(page => page.classList.remove('active'));
+        // COMPLETELY HIDE ALL PAGES FIRST
+        pages.forEach(page => {
+            page.classList.remove('active');
+            page.style.display = 'none'; // Force hide all pages
+        });
         
-        // Show target page
+        // SHOW ONLY THE TARGET PAGE
         const targetPage = document.getElementById(sectionId);
         if (targetPage) {
-            targetPage.classList.add('active');
+            targetPage.style.display = 'block'; // Make it visible
+            // Small delay to ensure display change before adding active class
+            setTimeout(() => {
+                targetPage.classList.add('active');
+            }, 10);
         }
         
         // Update active nav links
@@ -55,7 +62,7 @@ function initializeEverything() {
             }
         });
         
-        // UPDATE HEADER COLOR - ADD THIS LINE
+        // Update header color
         updateHeaderColor(sectionId);
         
         // Update navigation indicator
@@ -63,6 +70,15 @@ function initializeEverything() {
         
         // Close mobile menu
         closeMobileMenu();
+        
+        // SCROLL TO TOP - ADD THIS FOR PAGE-LIKE BEHAVIOR
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        
+        // Update URL hash without triggering scroll
+        history.replaceState(null, null, `#${sectionId}`);
     }
 
     // Close mobile menu
@@ -88,7 +104,7 @@ function initializeEverything() {
         });
     });
 
-    // Hero buttons click events - FIX FOR BUTTONS
+    // Hero buttons click events
     heroButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
@@ -140,9 +156,14 @@ function initializeEverything() {
     // Initialize typing effect
     initTypingEffect();
 
-    // Handle initial page load
+    // Handle initial page load - MODIFIED FOR TRUE PAGE ISOLATION
     const hash = window.location.hash.substring(1);
     const validSections = ['home', 'about', 'expertise', 'projects', 'labs', 'contact'];
+    
+    // HIDE ALL PAGES ON INITIAL LOAD
+    pages.forEach(page => {
+        page.style.display = 'none';
+    });
     
     if (hash && validSections.includes(hash)) {
         showSection(hash);
