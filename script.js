@@ -9,6 +9,7 @@ function initializeEverything() {
     const mobileMenu = document.querySelector('.mobile-menu');
     const navLinksContainer = document.querySelector('.nav-links');
     const heroButtons = document.querySelectorAll('.hero-buttons .btn');
+    const body = document.body; // ADD THIS LINE
 
     // Update navigation indicator
     function updateNavIndicator() {
@@ -22,6 +23,15 @@ function initializeEverything() {
             navIndicator.style.width = `${linkRect.width}px`;
             navIndicator.style.left = `${linkRect.left - navRect.left}px`;
         }
+    }
+
+    // ADD THIS FUNCTION - Header color switching
+    function updateHeaderColor(sectionId) {
+        // Remove all section classes from body
+        body.classList.remove('home-active', 'about-active', 'expertise-active', 'projects-active', 'labs-active', 'contact-active');
+        
+        // Add current section class
+        body.classList.add(`${sectionId}-active`);
     }
 
     // Show specific section
@@ -44,6 +54,9 @@ function initializeEverything() {
                 link.classList.add('active');
             }
         });
+        
+        // UPDATE HEADER COLOR - ADD THIS LINE
+        updateHeaderColor(sectionId);
         
         // Update navigation indicator
         updateNavIndicator();
