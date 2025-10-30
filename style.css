@@ -874,4 +874,16 @@ footer {
         height: 50px;
         padding: 0.75rem 0;
     }
+    /* Add this to your existing CSS */
+.page {
+    transition: opacity 0.3s ease;
+}
+
+.page:not(.active) {
+    opacity: 0;
+}
+
+.page.active {
+    opacity: 1;
+}
 }
