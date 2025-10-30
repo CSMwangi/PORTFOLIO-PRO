@@ -8,10 +8,9 @@ function initializeEverything() {
     const pages = document.querySelectorAll('.page');
     const mobileMenu = document.querySelector('.mobile-menu');
     const navLinksContainer = document.querySelector('.nav-links');
-    const heroButtons = document.querySelectorAll('.hero-buttons .btn');
     const body = document.body;
 
-    console.log('Initializing... Found hero buttons:', heroButtons.length);
+    console.log('Initializing navigation...');
 
     // Update navigation indicator
     function updateNavIndicator() {
@@ -95,34 +94,26 @@ function initializeEverything() {
         });
     });
 
-    // Hero buttons with direct event handling
-    heroButtons.forEach(button => {
+    // FIXED: Direct event handlers for hero buttons
+    document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('Hero button clicked:', this.textContent.trim());
+            console.log('Button clicked:', this.textContent.trim());
             
-            // Get section from data-section attribute
-            const sectionId = this.getAttribute('data-section');
-            console.log('Section to navigate:', sectionId);
+            let sectionId = this.getAttribute('data-section');
+            if (!sectionId) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    sectionId = href.substring(1);
+                }
+            }
+            
+            console.log('Going to section:', sectionId);
             
             if (sectionId) {
                 showSection(sectionId);
             }
         });
-    });
-
-    // BACKUP: Global click handler for hero buttons
-    document.addEventListener('click', function(e) {
-        const heroButton = e.target.closest('.hero-buttons .btn');
-        if (heroButton) {
-            e.preventDefault();
-            const sectionId = heroButton.getAttribute('data-section') || 
-                             heroButton.getAttribute('href')?.replace('#', '');
-            if (sectionId) {
-                console.log('Backup handler - Going to:', sectionId);
-                showSection(sectionId);
-            }
-        }
     });
 
     // Mobile menu
@@ -166,15 +157,21 @@ function initializeEverything() {
     window.addEventListener('resize', updateNavIndicator);
 }
 
-// ULTIMATE FIX - Add this at the end as backup
+// ULTIMATE FIX - Direct button handlers
 document.addEventListener('DOMContentLoaded', function() {
+    // Wait a bit for page to load completely
     setTimeout(function() {
-        const viewProjectsBtn = document.querySelector('a[href="#projects"]');
-        const contactMeBtn = document.querySelector('a[href="#contact"]');
+        console.log('Setting up ultimate button fix...');
         
-        if (viewProjectsBtn) {
-            viewProjectsBtn.onclick = function(e) {
+        // Fix for "View My Projects" button
+        const projectsBtn = document.querySelector('a[href="#projects"]');
+        if (projectsBtn) {
+            console.log('Found Projects button');
+            projectsBtn.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
+                console.log('Projects button clicked - navigating to projects');
+                
                 document.querySelectorAll('.page').forEach(p => {
                     p.classList.remove('active');
                     p.style.display = 'none';
@@ -182,12 +179,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('projects').style.display = 'block';
                 document.getElementById('projects').classList.add('active');
                 window.scrollTo(0, 0);
-            };
+            });
         }
         
-        if (contactMeBtn) {
-            contactMeBtn.onclick = function(e) {
+        // Fix for "Contact Me" button
+        const contactBtn = document.querySelector('a[href="#contact"]');
+        if (contactBtn) {
+            console.log('Found Contact button');
+            contactBtn.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
+                console.log('Contact button clicked - navigating to contact');
+                
                 document.querySelectorAll('.page').forEach(p => {
                     p.classList.remove('active');
                     p.style.display = 'none';
@@ -195,7 +198,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('contact').style.display = 'block';
                 document.getElementById('contact').classList.add('active');
                 window.scrollTo(0, 0);
-            };
+            });
         }
-    }, 1000);
+        
+        console.log('Button setup complete');
+    }, 500);
 });
