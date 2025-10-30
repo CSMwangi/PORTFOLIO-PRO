@@ -306,6 +306,30 @@ main {
     font-weight: 400;
 }
 
+/* TYPING EFFECT STYLES - ADDED */
+.typing-container {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #adb5bd;
+    font-weight: 400;
+    min-height: 2rem;
+}
+
+.typing-text {
+    color: #4dabf7;
+    font-weight: 600;
+}
+
+#typing-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
 .hero-description {
     font-size: 1.2rem;
     margin-bottom: 2rem;
