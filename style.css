@@ -9,6 +9,9 @@ body {
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
@@ -27,6 +30,7 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 nav {
@@ -129,16 +133,26 @@ body:not(.home-active) .mobile-menu {
     cursor: pointer;
 }
 
+/* Main Content Area */
+main {
+    flex: 1;
+    width: 100%;
+    margin-top: 80px; /* Space for fixed header */
+    position: relative;
+}
+
 /* Page Sections - Each as separate full page */
 .page {
     display: none;
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px - 80px); /* Full height minus header and footer */
     position: relative;
 }
 
 .page.active {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Home Section */
@@ -150,13 +164,13 @@ body:not(.home-active) .mobile-menu {
 }
 
 .hero-container {
-    min-height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     z-index: 2;
-    padding: 80px 0 60px 0; /* Space for header and footer */
 }
 
 .hero-content {
@@ -175,40 +189,22 @@ body:not(.home-active) .mobile-menu {
 #projects,
 #labs,
 #contact {
-    padding: 80px 0 60px 0; /* Space for header and footer */
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-#about {
     background: #f8f9fa;
 }
 
-#expertise {
-    background: white;
-}
-
-#projects {
-    background: #f8f9fa;
-}
-
+#expertise,
 #labs {
     background: white;
 }
 
-#contact {
-    background: #f8f9fa;
-}
-
-/* Container adjustments */
 #about .container,
 #expertise .container,
 #projects .container,
 #labs .container,
 #contact .container {
     width: 100%;
-    padding: 2rem 0;
+    padding: 3rem 0;
+    text-align: center;
 }
 
 .profile-hero {
@@ -698,14 +694,14 @@ body:not(.home-active) .mobile-menu {
     font-size: 0.95rem;
 }
 
-/* Footer - Compact and always at bottom */
+/* Footer - Compact and properly positioned */
 footer {
     background: #2c3e50;
     color: white;
     text-align: center;
     padding: 1.5rem 0;
     width: 100%;
-    position: relative;
+    flex-shrink: 0;
 }
 
 /* Responsive Design */
@@ -784,17 +780,12 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    /* Adjust padding for mobile */
-    #about,
-    #expertise,
-    #projects,
-    #labs,
-    #contact {
-        padding: 80px 0 50px 0;
+    .page {
+        min-height: calc(100vh - 80px - 60px);
     }
     
-    .hero-container {
-        padding: 80px 0 50px 0;
+    footer {
+        padding: 1rem 0;
     }
 }
 
@@ -858,20 +849,11 @@ footer {
         align-items: center;
     }
 
-    /* Compact footer for mobile */
+    .page {
+        min-height: calc(100vh - 80px - 50px);
+    }
+    
     footer {
-        padding: 1rem 0;
-    }
-    
-    #about,
-    #expertise,
-    #projects,
-    #labs,
-    #contact {
-        padding: 80px 0 40px 0;
-    }
-    
-    .hero-container {
-        padding: 80px 0 40px 0;
+        padding: 0.75rem 0;
     }
 }
