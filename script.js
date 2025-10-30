@@ -192,15 +192,21 @@ function initializeImageHandling() {
         // Check if image loads successfully
         profileImage.onload = function() {
             placeholder.style.display = 'none';
+            profileImage.style.display = 'block';
         };
         
         profileImage.onerror = function() {
             placeholder.style.display = 'flex';
+            profileImage.style.display = 'none';
         };
         
         // Trigger check for cached images
         if (profileImage.complete) {
             profileImage.onload();
+        } else {
+            // Show placeholder while image loads
+            placeholder.style.display = 'flex';
+            profileImage.style.display = 'none';
         }
     }
 }
