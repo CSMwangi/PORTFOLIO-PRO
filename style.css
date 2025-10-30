@@ -73,6 +73,40 @@ nav {
     font-weight: 600;
 }
 
+/* Header Color States */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Dark header for all sections except home */
+body:not(.home-active) header {
+    background: rgba(10, 10, 10, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.home-active) .logo {
+    color: white;
+}
+
+body:not(.home-active) .nav-link {
+    color: #e9ecef;
+}
+
+body:not(.home-active) .nav-link:hover,
+body:not(.home-active) .nav-link.active {
+    color: #4dabf7;
+}
+
+body:not(.home-active) .mobile-menu {
+    color: white;
+}
 /* Navigation Active Indicator */
 .nav-indicator {
     position: absolute;
