@@ -107,18 +107,18 @@ nav {
 
 /* Page Sections */
 .page {
-    display: none;
     min-height: 100vh;
     padding-top: 80px;
+    display: none;
 }
 
 .page.active {
     display: block;
 }
 
-/* Home Section */
+/* Home Section - Dark Theme */
 #home {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -136,7 +136,7 @@ nav {
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -150,57 +150,62 @@ nav {
 }
 
 .profile-image-container {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+    width: 320px;
+    height: 320px;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
-    border: 4px solid rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(77, 171, 247, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .profile-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
 }
 
 .image-placeholder {
     width: 100%;
     height: 100%;
-    background: #2c3e50;
+    background: #1a1a2e;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 4rem;
-    color: #ecf0f1;
+    color: #4dabf7;
 }
 
 .profile-glow {
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 50%;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 25px;
     background: linear-gradient(45deg, #4dabf7, #3bc9db, #38d9a9);
     z-index: -1;
     animation: glow 3s ease-in-out infinite alternate;
+    filter: blur(20px);
+    opacity: 0.3;
 }
 
 @keyframes glow {
     from {
+        opacity: 0.3;
         filter: blur(20px);
-        opacity: 0.7;
     }
     to {
-        filter: blur(30px);
-        opacity: 0.4;
+        opacity: 0.5;
+        filter: blur(25px);
     }
 }
 
 .hero-text h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .gradient-text {
@@ -213,7 +218,8 @@ nav {
 .subtitle-main {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: #e9ecef;
+    color: #adb5bd;
+    font-weight: 400;
 }
 
 .hero-description {
@@ -221,12 +227,13 @@ nav {
     margin-bottom: 2rem;
     line-height: 1.8;
     color: #e9ecef;
+    max-width: 600px;
 }
 
 .hero-stats {
     display: flex;
     gap: 3rem;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
 }
 
 .stat {
@@ -238,11 +245,13 @@ nav {
     font-size: 2.5rem;
     font-weight: 700;
     color: #4dabf7;
+    line-height: 1;
 }
 
 .stat-label {
     font-size: 1rem;
     color: #adb5bd;
+    margin-top: 0.5rem;
 }
 
 .hero-buttons {
@@ -262,6 +271,7 @@ nav {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .btn-primary {
@@ -272,12 +282,17 @@ nav {
 .btn-secondary {
     background: transparent;
     color: white;
-    border: 2px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(77, 171, 247, 0.4);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #4dabf7;
 }
 
 .scroll-indicator {
@@ -289,6 +304,7 @@ nav {
     color: white;
     cursor: pointer;
     animation: bounce 2s infinite;
+    opacity: 0.8;
 }
 
 @keyframes bounce {
@@ -317,26 +333,26 @@ nav {
 .bg-circle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(77, 171, 247, 0.1);
 }
 
 .circle-1 {
-    width: 300px;
-    height: 300px;
-    top: -150px;
-    right: -150px;
+    width: 400px;
+    height: 400px;
+    top: -200px;
+    right: -200px;
 }
 
 .circle-2 {
-    width: 200px;
-    height: 200px;
-    bottom: -100px;
+    width: 300px;
+    height: 300px;
+    bottom: -150px;
     left: 10%;
 }
 
 .circle-3 {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     top: 20%;
     left: 5%;
 }
@@ -344,7 +360,7 @@ nav {
 .floating-element {
     position: absolute;
     font-size: 2rem;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(77, 171, 247, 0.3);
     animation: float 6s ease-in-out infinite;
 }
 
@@ -398,27 +414,30 @@ nav {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     line-height: 1.8;
+    color: #555;
 }
 
 .mission-statement {
     background: white;
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 15px;
     margin-top: 2rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #4dabf7;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #4dabf7;
 }
 
 .mission-statement h3 {
     color: #2c3e50;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .mission-text {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-style: italic;
     color: #4dabf7;
     font-weight: 600;
+    line-height: 1.6;
 }
 
 /* Expertise Section */
@@ -435,28 +454,34 @@ nav {
 
 .card {
     background: white;
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid #e9ecef;
+    border: 1px solid #f1f3f4;
+    text-align: center;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .expertise-icon {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #4dabf7;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .expertise-card h3 {
     color: #2c3e50;
     margin-bottom: 1rem;
     font-size: 1.5rem;
+}
+
+.expertise-card p {
+    color: #666;
+    line-height: 1.6;
 }
 
 /* Projects Section */
@@ -468,11 +493,14 @@ nav {
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .project-card {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-img {
@@ -493,14 +521,15 @@ nav {
     justify-content: center;
     gap: 0.5rem;
     margin: 1.5rem 0;
+    flex-wrap: wrap;
 }
 
 .tech-tag {
     background: #e9ecef;
     color: #495057;
-    padding: 0.25rem 0.75rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 600;
 }
 
@@ -508,6 +537,12 @@ nav {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    margin-top: auto;
+}
+
+.project-links .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
 }
 
 /* Labs Section */
@@ -525,27 +560,31 @@ nav {
 
 .lab-card {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .lab-icon {
     font-size: 3rem;
     color: #4dabf7;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .lab-tags {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .tag {
     background: #e3f2fd;
     color: #1976d2;
-    padding: 0.25rem 0.75rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 600;
 }
 
@@ -563,13 +602,14 @@ nav {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
 }
 
 .contact-links {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -577,34 +617,37 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 2.5rem;
     background: white;
     border-radius: 15px;
     text-decoration: none;
     color: #333;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .contact-link:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .contact-link i {
     font-size: 3rem;
     color: #4dabf7;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .contact-link span {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    color: #2c3e50;
 }
 
 .contact-link small {
     color: #6c757d;
+    font-size: 0.95rem;
 }
 
 /* Footer */
@@ -616,6 +659,19 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .profile-image-container {
+        width: 280px;
+        height: 280px;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -625,8 +681,9 @@ footer {
         width: 100%;
         background: white;
         flex-direction: column;
-        padding: 1rem;
+        padding: 2rem;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        gap: 1rem;
     }
 
     .nav-links.active {
@@ -641,22 +698,17 @@ footer {
         display: none;
     }
 
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
     .hero-stats {
-        justify-content: center;
+        gap: 2rem;
     }
 
     .hero-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
     }
 
     .section-title {
@@ -665,6 +717,10 @@ footer {
 
     .expertise-grid,
     .card-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-links {
         grid-template-columns: 1fr;
     }
 }
@@ -679,7 +735,7 @@ footer {
     }
 
     .hero-text h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .subtitle-main {
@@ -688,9 +744,23 @@ footer {
 
     .hero-stats {
         gap: 1.5rem;
+        flex-direction: column;
     }
 
     .stat-number {
         font-size: 2rem;
+    }
+
+    .profile-image-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .card {
+        padding: 2rem;
     }
 }
