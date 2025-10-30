@@ -11,6 +11,14 @@ function initializeEverything() {
     const heroButtons = document.querySelectorAll('.hero-buttons .btn');
     const body = document.body;
 
+    // Debug: Check what buttons are found
+    console.log('Hero buttons found:', heroButtons.length);
+    heroButtons.forEach((btn, index) => {
+        console.log(`Button ${index}:`, btn.textContent.trim());
+        console.log(`Button ${index} data-section:`, btn.getAttribute('data-section'));
+        console.log(`Button ${index} href:`, btn.getAttribute('href'));
+    });
+
     // Update navigation indicator
     function updateNavIndicator() {
         const activeLink = document.querySelector('.nav-link.active');
@@ -104,21 +112,64 @@ function initializeEverything() {
         });
     });
 
-    // Hero buttons click events
+    // FIXED: Hero buttons click events - More robust approach
     heroButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Hero button clicked:', this.textContent.trim());
+            
+            // Method 1: Check data-section attribute
             let sectionId = this.getAttribute('data-section');
+            
+            // Method 2: Check href attribute
             if (!sectionId) {
                 const href = this.getAttribute('href');
                 if (href && href.startsWith('#')) {
                     sectionId = href.substring(1);
                 }
             }
-            if (sectionId) {
+            
+            // Method 3: Check button text content as fallback
+            if (!sectionId) {
+                const buttonText = this.textContent.trim();
+                if (buttonText.includes('Projects') || buttonText.includes('View My Projects')) {
+                    sectionId = 'projects';
+                } else if (buttonText.includes('Contact') || buttonText.includes('Contact Me')) {
+                    sectionId = 'contact';
+                }
+            }
+            
+            console.log('Determined section:', sectionId);
+            
+            if (sectionId && sectionId !== '#') {
                 showSection(sectionId);
             }
         });
+    });
+
+    // ADDITIONAL FIX: Direct event delegation as backup
+    document.addEventListener('click', function(e) {
+        // Check if click came from a hero button
+        const heroButton = e.target.closest('.hero-buttons .btn');
+        if (heroButton) {
+            e.preventDefault();
+            
+            const buttonText = heroButton.textContent.trim();
+            let sectionId = null;
+            
+            if (buttonText.includes('Projects')) {
+                sectionId = 'projects';
+            } else if (buttonText.includes('Contact')) {
+                sectionId = 'contact';
+            }
+            
+            if (sectionId) {
+                console.log('Backup handler - Navigating to:', sectionId);
+                showSection(sectionId);
+            }
+        }
     });
 
     // Mobile menu toggle
