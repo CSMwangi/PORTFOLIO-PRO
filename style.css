@@ -133,39 +133,37 @@ body:not(.home-active) .mobile-menu {
     cursor: pointer;
 }
 
-/* Main Content Area */
+/* Main Content Area - FIXED */
 main {
     flex: 1;
     width: 100%;
-    margin-top: 80px; /* Space for fixed header */
+    padding-top: 80px; /* Space for fixed header */
+    padding-bottom: 60px; /* Space for footer */
     position: relative;
 }
 
-/* Page Sections - Each as separate full page */
+/* Page Sections - FIXED */
 .page {
     display: none;
     width: 100%;
-    min-height: calc(100vh - 80px - 80px); /* Full height minus header and footer */
-    position: relative;
+    min-height: calc(100vh - 80px - 60px); /* Full height minus header and footer */
 }
 
 .page.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
 }
 
-/* Home Section */
+/* Home Section - FIXED */
 #home {
     background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
     color: white;
     position: relative;
     overflow: hidden;
+    min-height: calc(100vh - 80px - 60px); /* Match other pages */
 }
 
 .hero-container {
-    width: 100%;
-    height: 100%;
+    min-height: calc(100vh - 80px - 60px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,28 +181,48 @@ main {
     padding: 2rem;
 }
 
-/* Other Sections - Full pages with proper spacing */
+/* Other Sections - FIXED */
 #about,
 #expertise,
 #projects,
 #labs,
 #contact {
+    min-height: calc(100vh - 80px - 60px);
+    padding: 2rem 0;
+}
+
+#about {
     background: #f8f9fa;
 }
 
-#expertise,
+#expertise {
+    background: white;
+}
+
+#projects {
+    background: #f8f9fa;
+}
+
 #labs {
     background: white;
 }
 
+#contact {
+    background: #f8f9fa;
+}
+
+/* Container adjustments */
 #about .container,
 #expertise .container,
 #projects .container,
 #labs .container,
 #contact .container {
     width: 100%;
-    padding: 3rem 0;
-    text-align: center;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 80px - 60px - 4rem);
 }
 
 .profile-hero {
@@ -694,7 +712,7 @@ main {
     font-size: 0.95rem;
 }
 
-/* Footer - Compact and properly positioned */
+/* Footer - FIXED positioning */
 footer {
     background: #2c3e50;
     color: white;
@@ -702,6 +720,8 @@ footer {
     padding: 1.5rem 0;
     width: 100%;
     flex-shrink: 0;
+    position: relative;
+    bottom: 0;
 }
 
 /* Responsive Design */
@@ -780,8 +800,13 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .page {
-        min-height: calc(100vh - 80px - 60px);
+    main {
+        padding-bottom: 50px;
+    }
+    
+    .page,
+    #home {
+        min-height: calc(100vh - 80px - 50px);
     }
     
     footer {
@@ -849,31 +874,16 @@ footer {
         align-items: center;
     }
 
-    .page {
-        min-height: calc(100vh - 80px - 50px);
+    main {
+        padding-bottom: 40px;
+    }
+    
+    .page,
+    #home {
+        min-height: calc(100vh - 80px - 40px);
     }
     
     footer {
         padding: 0.75rem 0;
     }
-    /* Add this to your existing CSS */
-main {
-    flex: 1;
-    width: 100%;
-    margin-top: 80px; /* Space for fixed header */
-    position: relative;
-}
-
-.page {
-    display: none;
-    width: 100%;
-    min-height: calc(100vh - 80px - 80px); /* Full height minus header and footer */
-    position: relative;
-}
-
-.page.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 }
