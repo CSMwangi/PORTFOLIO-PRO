@@ -886,4 +886,10 @@ footer {
 .page.active {
     opacity: 1;
 }
+    .hero-buttons a {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 10;
+}
 }
