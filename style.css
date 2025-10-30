@@ -31,6 +31,7 @@ header {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     flex-shrink: 0;
+    height: 80px; /* Fixed header height */
 }
 
 nav {
@@ -41,6 +42,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
+    height: 100%;
 }
 
 .logo {
@@ -133,37 +135,37 @@ body:not(.home-active) .mobile-menu {
     cursor: pointer;
 }
 
-/* Main Content Area - FIXED */
+/* Main Content Area - DESKTOP FIX */
 main {
     flex: 1;
     width: 100%;
-    padding-top: 80px; /* Space for fixed header */
-    padding-bottom: 60px; /* Space for footer */
+    margin-top: 80px; /* Space for fixed header */
+    min-height: calc(100vh - 80px - 80px); /* Full height minus header and footer */
     position: relative;
 }
 
-/* Page Sections - FIXED */
+/* Page Sections - DESKTOP FIX */
 .page {
     display: none;
     width: 100%;
-    min-height: calc(100vh - 80px - 60px); /* Full height minus header and footer */
+    min-height: calc(100vh - 80px - 80px); /* Full height minus header and footer */
 }
 
 .page.active {
     display: block;
 }
 
-/* Home Section - FIXED */
+/* Home Section - DESKTOP FIX */
 #home {
     background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
     color: white;
     position: relative;
     overflow: hidden;
-    min-height: calc(100vh - 80px - 60px); /* Match other pages */
+    min-height: calc(100vh - 80px - 80px);
 }
 
 .hero-container {
-    min-height: calc(100vh - 80px - 60px);
+    min-height: calc(100vh - 80px - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,14 +183,15 @@ main {
     padding: 2rem;
 }
 
-/* Other Sections - FIXED */
+/* Other Sections - DESKTOP FIX */
 #about,
 #expertise,
 #projects,
 #labs,
 #contact {
-    min-height: calc(100vh - 80px - 60px);
-    padding: 2rem 0;
+    min-height: calc(100vh - 80px - 80px);
+    display: flex;
+    align-items: center;
 }
 
 #about {
@@ -211,18 +214,17 @@ main {
     background: #f8f9fa;
 }
 
-/* Container adjustments */
+/* Container adjustments for desktop */
 #about .container,
 #expertise .container,
 #projects .container,
 #labs .container,
 #contact .container {
     width: 100%;
-    padding: 2rem 0;
+    padding: 3rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: calc(100vh - 80px - 60px - 4rem);
 }
 
 .profile-hero {
@@ -712,19 +714,25 @@ main {
     font-size: 0.95rem;
 }
 
-/* Footer - FIXED positioning */
+/* Footer - DESKTOP FIX */
 footer {
     background: #2c3e50;
     color: white;
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 2rem 0;
     width: 100%;
     flex-shrink: 0;
-    position: relative;
-    bottom: 0;
+    height: 80px; /* Fixed footer height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Responsive Design */
+.footer-content {
+    width: 100%;
+}
+
+/* Responsive Design - MOBILE FIXES */
 @media (max-width: 1024px) {
     .hero-content {
         grid-template-columns: 1fr;
@@ -800,16 +808,18 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    /* MOBILE HEIGHT FIXES */
     main {
-        padding-bottom: 50px;
+        min-height: calc(100vh - 80px - 60px);
     }
     
     .page,
     #home {
-        min-height: calc(100vh - 80px - 50px);
+        min-height: calc(100vh - 80px - 60px);
     }
     
     footer {
+        height: 60px;
         padding: 1rem 0;
     }
 }
@@ -874,16 +884,18 @@ footer {
         align-items: center;
     }
 
+    /* SMALL MOBILE HEIGHT FIXES */
     main {
-        padding-bottom: 40px;
+        min-height: calc(100vh - 80px - 50px);
     }
     
     .page,
     #home {
-        min-height: calc(100vh - 80px - 40px);
+        min-height: calc(100vh - 80px - 50px);
     }
     
     footer {
+        height: 50px;
         padding: 0.75rem 0;
     }
 }
