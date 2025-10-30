@@ -825,3 +825,53 @@ footer {
     .stat-number {
         font-size: 2rem;
     }
+
+    .profile-image-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .card {
+        padding: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        align-items: center;
+    }
+
+    /* Small mobile height fixes */
+    main {
+        min-height: calc(100vh - 80px - 50px);
+    }
+    
+    .page,
+    #home {
+        min-height: calc(100vh - 80px - 50px);
+    }
+    
+    footer {
+        height: 50px;
+        padding: 0.75rem 0;
+    }
+}
