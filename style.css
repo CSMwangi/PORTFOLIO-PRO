@@ -31,7 +31,7 @@ header {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     flex-shrink: 0;
-    height: 80px; /* Fixed header height */
+    height: 80px;
 }
 
 nav {
@@ -135,27 +135,27 @@ body:not(.home-active) .mobile-menu {
     cursor: pointer;
 }
 
-/* Main Content Area - DESKTOP FIX */
+/* Main Content Area */
 main {
     flex: 1;
     width: 100%;
-    margin-top: 80px; /* Space for fixed header */
-    min-height: calc(100vh - 80px - 80px); /* Full height minus header and footer */
+    margin-top: 80px;
+    min-height: calc(100vh - 80px - 80px);
     position: relative;
 }
 
-/* Page Sections - DESKTOP FIX */
+/* Page Sections */
 .page {
     display: none;
     width: 100%;
-    min-height: calc(100vh - 80px - 80px); /* Full height minus header and footer */
+    min-height: calc(100vh - 80px - 80px);
 }
 
 .page.active {
     display: block;
 }
 
-/* Home Section - DESKTOP FIX */
+/* Home Section */
 #home {
     background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
     color: white;
@@ -183,7 +183,7 @@ main {
     padding: 2rem;
 }
 
-/* Other Sections - DESKTOP FIX */
+/* Other Sections */
 #about,
 #expertise,
 #projects,
@@ -214,7 +214,7 @@ main {
     background: #f8f9fa;
 }
 
-/* Container adjustments for desktop */
+/* Container adjustments */
 #about .container,
 #expertise .container,
 #projects .container,
@@ -306,30 +306,6 @@ main {
     font-weight: 400;
 }
 
-/* TYPING EFFECT STYLES - ADDED */
-.typing-container {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #adb5bd;
-    font-weight: 400;
-    min-height: 2rem;
-}
-
-.typing-text {
-    color: #4dabf7;
-    font-weight: 600;
-}
-
-#typing-text::after {
-    content: '|';
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-
 .hero-description {
     font-size: 1.2rem;
     margin-bottom: 2rem;
@@ -405,30 +381,6 @@ main {
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: #4dabf7;
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: white;
-    cursor: pointer;
-    animation: bounce 2s infinite;
-    opacity: 0.8;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(-5px);
-    }
 }
 
 /* Background Elements */
@@ -738,7 +690,7 @@ main {
     font-size: 0.95rem;
 }
 
-/* Footer - DESKTOP FIX */
+/* Footer */
 footer {
     background: #2c3e50;
     color: white;
@@ -746,7 +698,7 @@ footer {
     padding: 2rem 0;
     width: 100%;
     flex-shrink: 0;
-    height: 80px; /* Fixed footer height */
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -756,7 +708,7 @@ footer {
     width: 100%;
 }
 
-/* Responsive Design - MOBILE FIXES */
+/* Responsive Design */
 @media (max-width: 1024px) {
     .hero-content {
         grid-template-columns: 1fr;
@@ -832,7 +784,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    /* MOBILE HEIGHT FIXES */
+    /* Mobile height fixes */
     main {
         min-height: calc(100vh - 80px - 60px);
     }
@@ -873,53 +825,3 @@ footer {
     .stat-number {
         font-size: 2rem;
     }
-
-    .profile-image-container {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .card {
-        padding: 2rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 0.75rem;
-        width: 100%;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 280px;
-        padding: 0.875rem 1.25rem;
-        font-size: 0.9rem;
-    }
-    
-    .hero-text {
-        text-align: center;
-    }
-    
-    .hero-buttons {
-        align-items: center;
-    }
-
-    /* SMALL MOBILE HEIGHT FIXES */
-    main {
-        min-height: calc(100vh - 80px - 50px);
-    }
-    
-    .page,
-    #home {
-        min-height: calc(100vh - 80px - 50px);
-    }
-    
-    footer {
-        height: 50px;
-        padding: 0.75rem 0;
-    }
-}
